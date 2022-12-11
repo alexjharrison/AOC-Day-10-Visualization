@@ -15,14 +15,13 @@
     ],
     "skipLibCheck": true,
     "noEmit": true,
-    "rootDir": "src"
+    "rootDir": "src",
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "node_modules/primevue"
   ],
   "references": [
     {
