@@ -1,4 +1,4 @@
-import { reactive, watch, watchEffect } from "vue";
+import { computed, reactive, watch, watchEffect } from "vue";
 import { calcSteps } from "./solve";
 
 type State = {
@@ -29,7 +29,7 @@ export function useCrt() {
             }
             state.playInterval = setInterval(() => {
                 state.step++
-            }, state.isFast ? 100 : 800)
+            }, state.isFast ? 300 : 800)
         }
     }
 
@@ -43,5 +43,9 @@ export function useCrt() {
             state.playInterval = null
         }
     })
-    return { state, handlePlay }
+    return {
+        state,
+        handlePlay,
+        transitionTimeMs: computed(() => state.isFast ? 300 : 800)
+    }
 }
